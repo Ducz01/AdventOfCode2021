@@ -42,22 +42,23 @@ def part2():
         oxygenlistzero, oxygenlistone = checkLists(i, oxygenlist)
         if len(oxygenlistone) >= len(oxygenlistzero):
             oxygenlist = oxygenlistone
-            if len(oxygenlist) == 1:
-                oxygen = oxygenlist[0]
-        else: oxygenlist = oxygenlistzero
+        else: 
+            oxygenlist = oxygenlistzero
+
+        if len(oxygenlist) == 1:
+            oxygen = oxygenlist[0]
 
         co2listzero, co2listone = checkLists(i, co2list)
-        if len(co2listzero) >= len(co2listone):
+        if len(co2listzero) <= len(co2listone):
             co2list = co2listzero
-            if len(co2list) == 1:
-                co2 = co2list[0]
         else:
             co2list = co2listone
+        if len(co2list) == 1:
+            co2 = co2list[0]
 
         if len(co2list) ==1 and len(oxygenlist) ==1:
             break
     
-    print(co2, oxygen)
     oxygenResult = int(oxygen, 2)
     co2Result = int(co2, 2)
     print(oxygenResult * co2Result)
