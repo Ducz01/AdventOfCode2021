@@ -1,4 +1,4 @@
-with open('01/input.txt') as f:
+with open('day1/input.txt') as f:
     lines = f.readlines()
 
 prev = int(lines[0])
