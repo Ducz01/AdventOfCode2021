@@ -79,42 +79,69 @@ for i in range(2,len(lines),1):
             boards.append(board)
             board = np.empty((0, 5), int)
 
-#won is false
-won = False
-#winning number default
-winningNumber = -1
-#empty winning board
-winningBoard = np.array
 
-#for each drawing number
-for number in drawPool:
-    #if already won break
-    if won:
-        break
-    #for each board
-    for board in boards:
-        #if number exists in board
-        if int(number) in board:
-            #check number -> set to -1
-            np.place(board, board == int(number), -1)
+def part1():
+    #won is false
+    won = False
+    #winning number default
+    winningNumber = -1
+    #empty winning board
+    winningBoard = np.array
+    #for each drawing number
+    for number in drawPool:
+        #if already won break
+        if won:
+            break
+        #for each board
+        for board in boards:
+            #if number exists in board
+            if int(number) in board:
+                #check number -> set to -1
+                np.place(board, board == int(number), -1)
+            
+            #check if full row, column, diagonal exists
+                if findRow(board) or findColumn(board) or findDiagonal(board):
+                    #set won to true
+                    won = True
+                    #save winning board
+                    winningBoard = board
+                    #save winning number
+                    winningNumber = number
+                    break
+
+    #get all values that are not checked aka -1 and add together
+    sum = winningBoard[winningBoard != -1].sum(axis=0)
+    print(sum * int(winningNumber))
            
-           #check if full row, column, diagonal exists
-            if findRow(board) or findColumn(board) or findDiagonal(board):
-                #set won to true
-                won = True
-                #save winning board
-                winningBoard = board
-                #save winning number
-                winningNumber = number
-                break
+def part2():
+    #empty winning board
+    losingBoard = np.array
+    losingnumber = -1
+    #for each drawing number
+    for number in drawPool:
+        #for each board
+        boardToRemove = -1
+        for index,board in enumerate(boards):
+            #if number exists in board
+            if int(number) in board:
+                #check number -> set to -1
+                np.place(board, board == int(number), -1)
+            
+            #check if full row, column, diagonal exists
+                if findRow(board) or findColumn(board) or findDiagonal(board):
+                    boards.pop(index)
+                    print('now')
+                    losingnumber = number
+                    if len(boards) == 1:
+                        losingBoard = boards[0]
+                        break
+                    
 
-#get all values that are not checked aka -1 and add together
-sum = winningBoard[winningBoard != -1].sum(axis=0)
-print(sum * int(winningNumber))
-           
+    #get all values that are not checked aka -1 and add together
+    sum = losingBoard[losingBoard != -1].sum(axis=0)
+    print(sum * int(losingnumber))
 
-
-
+part2()
 
 
         
