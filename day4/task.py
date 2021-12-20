@@ -44,8 +44,7 @@ for i in range(2,len(lines),1):
       
     else:
         row = [int(s) for s in lines[i].split() if s.isdigit()]
-        arr = np.array([row])
-        board = np.append(board, np.array(arr), axis=0)
+        board = np.append(board, np.array([row]), axis=0)
         
         if i == len(lines)-1:
             boards.append(board)
