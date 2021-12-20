@@ -1,6 +1,6 @@
 import numpy as np
 
-with open('day4/input.txt') as f:
+with open('day4/inputDuc.txt') as f:
     lines = f.readlines()
 
 drawString = lines[0]
