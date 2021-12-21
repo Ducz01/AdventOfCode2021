@@ -130,7 +130,6 @@ def partTwo():
         y1 = value[0][1]
         y2 = value[1][1]
 
-
         #if x values are the same
         if x1 == x2: 
             #if y2 bigger than y1 switch values
