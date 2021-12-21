@@ -143,5 +143,6 @@ def part2():
 
 part2()
 
+Task2()
 
         
