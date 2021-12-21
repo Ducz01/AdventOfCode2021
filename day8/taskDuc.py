@@ -55,5 +55,8 @@ def part2():
     }
     for line in lines:
         parts = line.split('|')
-        crypt = parts[0].split(' ')
+        crypts = parts[0].split(' ')
+        for index, crypt in enumerate(crypts):
+            for i in range(index + 1, len(crypts)):
+                
 part2()
