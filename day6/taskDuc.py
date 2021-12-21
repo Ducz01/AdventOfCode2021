@@ -12,7 +12,7 @@ for fish in fishPool:
 print(len(all_fish))
 print(all_fish)
 
-days = 80
+days = 256
 
 for i in range(days):
     reproduceNumber = all_fish[0]
