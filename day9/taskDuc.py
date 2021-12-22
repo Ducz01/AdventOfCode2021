@@ -181,6 +181,7 @@ def part1():
                 lowPoints.append(value)
     print(lowPoints)
     sum = 0
+    print(len(lowPoints))
     for point in lowPoints:
         sum+= (point+1)
     print(sum)
@@ -289,4 +290,4 @@ def part2():
     print(result)
 
 
-part2()
+part1()
